@@ -4,6 +4,7 @@
     src: "/home/ansible/postgresql_packages/{{ item }}"
     dest: /home/ansible/postgresql_packages/
   loop: "{{ postgresql_packages }}"
+  register: copied
 
 - name: Ensure PostgreSQL packages are installed.
   yum:
