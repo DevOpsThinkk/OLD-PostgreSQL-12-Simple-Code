@@ -1,0 +1,11 @@
+---
+- name: "Transfer RPM files to remote machine"
+  copy:
+    src: "/home/ansible/postgresql_packages/{{ item }}"
+    dest: /home/ansible/postgresql_packages/
+  loop: "{{ postgresql_packages }}"
+
+- name: Ensure PostgreSQL packages are installed.
+  yum:
+    name: "{{ copied | json_query('results[?!failed].dest[]') }}"
+    state: present
