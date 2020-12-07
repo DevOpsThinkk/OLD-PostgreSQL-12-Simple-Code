@@ -6,8 +6,15 @@
   loop: "{{ postgresql_packages }}"
   register: copied
 
-- name: Ensure PostgreSQL packages are installed.
+- name: "Install Local RPMs"
   yum:
-    name: "{{ copied | json_query('results[?!failed].dest[]') }}"
-    disable_gpg_check: True
+    name: "/home/ansible/postgresql_packages/{{ item }}"
     state: present
+    loop: "{{ postgresql_packages }}"
+  
+
+#- name: Ensure PostgreSQL packages are installed.
+#  yum:
+#    name: "{{ copied | json_query('results[].dest[]') }}"
+#    disable_gpg_check: True
+#    state: present
