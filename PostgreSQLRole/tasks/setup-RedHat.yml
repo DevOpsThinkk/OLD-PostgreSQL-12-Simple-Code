@@ -9,4 +9,5 @@
 - name: Ensure PostgreSQL packages are installed.
   yum:
     name: "{{ copied | json_query('results[?!failed].dest[]') }}"
+    disable_gpg_check: True
     state: present
