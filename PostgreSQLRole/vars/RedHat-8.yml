@@ -4,7 +4,7 @@ postgresql_varlib_directory_name: "postgresql"
 postgresql_data_dir: "/var/lib/{{ postgresql_varlib_directory_name }}/{{ postgresql_version }}"
 postgresql_bin_path: "/usr/pgsql-{{postgresql_version}}/bin"
 postgresql_config_path: "/var/lib/{{ postgresql_varlib_directory_name }}/{{ postgresql_version }}"
-postgresql_daemon: postgresql
+postgresql_daemon: "postgresql-{{ postgresql_version }}"
 postgresql_packages:
   - postgresql12-12.5-1PGDG.rhel8.x86_64.rpm
   - postgresql12-libs-12.5-1PGDG.rhel8.x86_64.rpm
