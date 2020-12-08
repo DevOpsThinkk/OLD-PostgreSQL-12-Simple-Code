@@ -6,6 +6,21 @@
   loop: "{{ postgresql_packages }}"
   register: copied
 
+- name: Import Postgresql-11 GPG key from a url
+  rpm_key:
+    state: present
+    key: https://ftp.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-11
+
+- name: Import Postgresql-12 GPG key from a url
+  rpm_key:
+    state: present
+    key: https://ftp.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-12
+
+- name: Import Postgresql-13 GPG key from a url
+  rpm_key:
+    state: present
+    key: https://ftp.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-13
+
 - name: "Install Local RPM postgresql12-libs"
   yum:
     name: /root/postgresql_packages/postgresql12-libs-12.5-1PGDG.rhel8.x86_64.rpm
