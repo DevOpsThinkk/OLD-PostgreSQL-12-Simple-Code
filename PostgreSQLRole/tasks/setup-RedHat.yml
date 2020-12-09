@@ -13,5 +13,5 @@
 
 - name: "Install Local RPM postgresql12-libs"
   yum:
-    name: name: "{{  postgresql_packages  }}"
+    name: "{{  postgresql_packages  }}"
     state: present
