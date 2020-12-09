@@ -9,8 +9,8 @@ postgresql_bin_path: "/usr/pgsql-{{postgresql_version}}/bin"
 postgresql_log_dir: "/var/log/postgresql"
 postgresql_daemon: "postgresql-{{ postgresql_version }}"
 postgresql_packages:
-  - postgresql12-12.5-1PGDG.rhel8.x86_64.rpm
   - postgresql12-libs-12.5-1PGDG.rhel8.x86_64.rpm
+  - postgresql12-12.5-1PGDG.rhel8.x86_64.rpm
   - postgresql12-server-12.5-1PGDG.rhel8.x86_64.rpm
 postgresql_unix_socket_directories_mode: '0755'
 
