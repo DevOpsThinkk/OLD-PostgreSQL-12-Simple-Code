@@ -1,11 +1,4 @@
 ---
-- name: "Transfer Files"
-  copy:
-    src: "/home/ansible/postgresql_packages/{{ item }}"
-    dest: /root/postgresql_packages/
-  loop: "{{ postgresql_packages }}"
-  register: copied
-
 - name: Import Postgresql-12 GPG key from a url
   rpm_key:
     state: present
@@ -13,5 +6,5 @@
 
 - name: "Install Local RPM postgresql12-libs"
   yum:
-    name: "{{  postgresql_packages  }}"
+    name: "files/{{  postgresql_packages  }}"
     state: present
